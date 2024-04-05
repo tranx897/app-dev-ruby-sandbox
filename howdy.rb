@@ -1,7 +1,6 @@
 # /howdy.rb
 
-pp "What's your name?"
+my_string = "Hello, world!"
+pp my_string
 
-their_name = gets
-
-puts "Hello, " + their_name + "!"
+require "./goodbye.rb"
