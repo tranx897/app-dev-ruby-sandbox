@@ -6,19 +6,13 @@ secret = [
 
 encoder = {"a":1, "e":2, "i":3, "o":4, "u":5}
 
-words = secret.split(" ") # words is a list of words in a sentence
-pp words
-words.length.times do |w_index|
-  word = words[w_index] # isolating a word
-  chars = word.split("") # chars is a list of characters in a word
-  chars.length.times do |c_index|
-    key = chars[c_index].downcase.to_sym
-    if encoder.keys().include? key
-      chars[c_index] = encoder[key]
-    end
+chars = secret.split("")
+encoded_chars = []
+chars.each do |char|
+  if encoder.keys.include? char.downcase.to_sym
+    encoded_chars.append(encoder[char.downcase.to_sym])
+  else
+    encoded_chars.append(char)
   end
-  word = chars.join
-  words[w_index] = word
 end
-
-pp words.join(" ")
+pp encoded_chars.join("")
